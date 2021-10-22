@@ -1,0 +1,86 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	background: #000 url('img/bg.jpg') no-repeat center center/cover;
+	height: 100vh;
+	color: #fff;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+	max-width: 1200px;
+	margin: auto;
+	padding: 0 20px;
+}
+
+h3.victimID {
+	margin-top: 20px;
+	position: relative;
+	letter-spacing: 1px;
+	/* margin: 0; */
+}
+
+.stalkerID {
+	margin-top: 0px;
+	position: relative;
+	letter-spacing: 1px;
+	/* margin: 0; */
+}
+
+.info {
+	margin-top: 40px;
+	margin-left: 20px;
+	padding: 5px;
+	/* float: right; */
+	flex-grow: 1;
+}
+
+img {
+	/* border: 1px solid #ddd; */
+	border-radius: 4px;
+	padding: 5px;
+	width: 200px;
+}
+
+.btn {
+	display: inline-block;
+	color: #fff;
+	background-color: hsl(149, 86%, 25%);
+	font-size: 15px;
+	text-align: center;
+	padding: 10px 15px;
+	border: 0;
+	margin: 10px 0;
+}
+
+header {
+	height: 150px;
+}
+
+header img {
+	width: 150px;
+}
+
+.center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+input[type='username'],
+input[type='password'],
+input[type='usernameVictim'] {
+	display: block;
+	padding: 1px;
+	font-size: 15px;
+	border: 10;
+	border-radius: 5px;
+	width: fit-content;
+	margin: left;
+	outline: none;
+}
