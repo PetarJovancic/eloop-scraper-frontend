@@ -26,3 +26,11 @@ To execute app, run:
 ```
 npm start
 ```
+
+### Using Docker
+
+To build and run Docker containers use the following command:
+
+```
+docker-compose up --build --remove-orphans
+```

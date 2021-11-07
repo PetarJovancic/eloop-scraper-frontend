@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Header from './components/ui/Header';
 import ID from './components/ui/ID';
+import Inputs from './components/ui/Inputs';
 import axios from 'axios';
 import './App.css';
 
@@ -9,42 +10,49 @@ const App = () => {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const [profile, setProfile] = useState('');
+	const [isOpen, setIsOpen] = useState(false);
 
-	useEffect(() => {
-		const fetchItems = async () => {
-			const result = await axios.post('/profile');
-			setItems(result.data);
-		};
-		fetchItems();
-	}, []);
-
-	const submitButton = () => {
-		// fetchItems();
+	const togglePopup = () => {
+		setIsOpen(!isOpen);
 	};
 
-	const userChange = e => {
+	const handleClick = async e => {
+		e.preventDefault();
+		const data = { username: username, password: password, profile: profile };
+		const result = await axios.post('/profile', {
+			body: data,
+		});
+		setItems(result.data);
+	};
+
+	function usernameValue(e) {
 		setUsername(e.target.value);
-	};
+	}
 
-	const passChange = e => {
+	function passwordValue(e) {
 		setPassword(e.target.value);
-	};
+	}
 
-	const profileChange = e => {
+	function profileValue(e) {
 		setProfile(e.target.value);
-	};
+	}
+
 	return (
 		<div className="container">
 			<Header />
 			<ID
 				items={items}
-				submitButton={submitButton}
 				username={username}
-				userChange={userChange}
 				password={password}
-				passChange={passChange}
 				profile={profile}
-				profileChange={profileChange}
+				togglePopup={togglePopup}
+				isOpen={isOpen}
+			/>
+			<Inputs
+				usernameValue={usernameValue}
+				passwordValue={passwordValue}
+				handleClick={handleClick}
+				profileValue={profileValue}
 			/>
 		</div>
 	);

@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+    volumes:
+      - .:/eloop-scraper-frontend
+    ports:
+      - 3000:3000
+    image: app:eloop
+    container_name: eloop_container
+    command: npm start
